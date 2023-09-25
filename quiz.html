@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vocabulary Quiz with Qbo Robot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            text-align: center;
+            padding: 50px;
+        }
+        .question {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .choice {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 20%;
+            font-size: 18px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="question">{{ question["question"] }}</div>
+    <form method="POST">
+        {% for choice in question["choices"] %}
+            <button class="choice" type="submit" name="choice" value="{{ choice }}">{{ choice }}</button>
+        {% endfor %}
+        <input type="hidden" name="question_num" value="{{ question_num }}">
+    </form>
+</body>
+</html>
